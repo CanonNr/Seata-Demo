@@ -1,5 +1,5 @@
 server:
-  port: 11061
+  port: 11062
 
 spring:
   application:
@@ -7,7 +7,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:33061/seata_1?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:33061/seata_2?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
     password: root
 

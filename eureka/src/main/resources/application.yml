@@ -1,0 +1,12 @@
+server:
+  port: 11060
+
+eureka:
+  instance:
+    hostname: eureka
+    appname: EurekaServer
+  client:
+    register-with-eureka: false
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka:11060/eureka/

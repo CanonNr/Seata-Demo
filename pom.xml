@@ -10,7 +10,9 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>eureka</module>
         <module>service-1</module>
+        <module>service-2</module>
     </modules>
 
 </project>
