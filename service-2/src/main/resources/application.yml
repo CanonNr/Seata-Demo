@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: service2
+    name: com.lksun.service2
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver

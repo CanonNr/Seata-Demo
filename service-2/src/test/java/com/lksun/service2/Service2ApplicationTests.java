@@ -1,4 +1,4 @@
-package service2;
+package com.lksun.service2;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

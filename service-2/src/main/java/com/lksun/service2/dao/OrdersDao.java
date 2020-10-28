@@ -1,7 +1,9 @@
-package service2.dao;
+package com.lksun.service2.dao;
 
-import service2.entity.Orders;
+import com.lksun.service2.entity.Orders;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface OrdersDao {
     int deleteByPrimaryKey(Integer id);
 
