@@ -3,7 +3,7 @@
 <mapper namespace="com.lksun.service1.dao.OrderDao">
   <resultMap id="BaseResultMap" type="com.lksun.service1.entity.Order">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="status" jdbcType="BOOLEAN" property="status" />
+    <result column="status" jdbcType="INTEGER" property="status" />
   </resultMap>
   <sql id="Base_Column_List">
     id, `status`
@@ -20,7 +20,7 @@
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.lksun.service1.entity.Order" useGeneratedKeys="true">
     insert into orders (`status`)
-    values (#{status,jdbcType=BOOLEAN})
+    values (#{status})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.lksun.service1.entity.Order" useGeneratedKeys="true">
     insert into orders
@@ -31,7 +31,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="status != null">
-        #{status,jdbcType=BOOLEAN},
+        #{status},
       </if>
     </trim>
   </insert>
@@ -39,14 +39,14 @@
     update order
     <set>
       <if test="status != null">
-        `status` = #{status,jdbcType=BOOLEAN},
+        `status` = #{status},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.lksun.service1.entity.Order">
     update orders
-    set `status` = #{status,jdbcType=BOOLEAN}
+    set `status` = #{status}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

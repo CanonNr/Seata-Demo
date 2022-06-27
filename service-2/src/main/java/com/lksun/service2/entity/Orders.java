@@ -11,7 +11,7 @@ import lombok.Data;
 public class Orders implements Serializable {
     private Integer id;
 
-    private Boolean status;
+    private Integer status;
 
     private static final long serialVersionUID = 1L;
 }
