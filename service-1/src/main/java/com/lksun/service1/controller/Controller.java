@@ -19,7 +19,6 @@ public class Controller {
 
     @RequestMapping("/rm")
     @GlobalTransactional(rollbackFor = Exception.class)
-    @Transactional
     public String action(Integer id) {
         Order order = orderDao.selectByPrimaryKey(1);
         order.setStatus(order.getStatus()+100);

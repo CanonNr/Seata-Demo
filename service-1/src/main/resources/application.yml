@@ -1,6 +1,5 @@
 server:
   port: 11061
-
 spring:
   application:
     name: service1
@@ -18,17 +17,19 @@ eureka:
     service-url:
       defaultZone: http://localhost:11060/eureka/
 seata:
+  tx-service-group: default_tx_group
   service:
     grouplist:
       default: 127.0.0.1:8091
     vgroup-mapping:
       default_tx_group: default
-  tx-service-group: default_tx_group
   registry:
-    type: file
+    type: eureka
     eureka:
       service-url: http://localhost:11060/eureka/
   config:
     type: file
-  data-source-proxy-mode: AT
 
+logging:
+  level:
+    io.seata: debug

@@ -1,5 +1,6 @@
 package com.lksun.service2.controller;
 
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +15,7 @@ public class Controller {
     OrdersDao ordersDao;
 
     @GetMapping("/rm")
-    @Transactional
+    @GlobalTransactional(rollbackFor = Exception.class)
     public void rm(Integer id) throws InterruptedException {
         Thread.sleep(2000);
         Orders order = ordersDao.selectByPrimaryKey(1);
