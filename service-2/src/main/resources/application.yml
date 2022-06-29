@@ -19,3 +19,16 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:11060/eureka/
+
+seata:
+  data-source-proxy-mode: XA
+  service:
+    grouplist:
+      default: 127.0.0.1:8091
+    vgroup-mapping:
+      default_tx_group: default
+  tx-service-group: default_tx_group
+  registry:
+    type: file
+  config:
+    type: file

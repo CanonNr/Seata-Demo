@@ -10,12 +10,23 @@ spring:
     url: jdbc:mysql://localhost:3306/seata_test_1?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
     password: 123456
-
 mybatis:
   mapper-locations:
     - classpath:mapper/*.xml
-
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:11060/eureka/
+seata:
+  service:
+    grouplist:
+      default: 127.0.0.1:8091
+    vgroup-mapping:
+      default_tx_group: default
+  tx-service-group: default_tx_group
+  registry:
+    type: file
+  config:
+    type: file
+  data-source-proxy-mode: XA
+
