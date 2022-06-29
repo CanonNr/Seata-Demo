@@ -19,16 +19,17 @@ public class Controller {
 
     @RequestMapping("/rm")
     @GlobalTransactional(rollbackFor = Exception.class)
+    @Transactional
     public String action(Integer id) {
         Order order = orderDao.selectByPrimaryKey(1);
         order.setStatus(order.getStatus()+100);
         // orderDao.insert(order);
         orderDao.updateByPrimaryKey(order);
         rm2(id);
-        int i = 10 / id;
+        if (id>100){
+            int i = 10 / 0;
+        }
         return "Success";
-
-
     }
 
     @Autowired
