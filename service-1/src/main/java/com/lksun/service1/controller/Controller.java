@@ -18,15 +18,17 @@ public class Controller {
 
     @RequestMapping("/rm")
     @GlobalTransactional(rollbackFor = Exception.class)
-    public String action() {
+    public String action(Integer id) {
 
         Order order = new Order();
         order.setId(1);
         order.setStatus(100);
         // orderDao.insert(order);
         orderDao.updateByPrimaryKey(order);
-        rm2();
-        int i = 10 / 0;
+        rm2(id);
+        if(id > 100){
+            System.out.println(10 / 0);
+        }
         return "Success";
 
 
@@ -35,7 +37,7 @@ public class Controller {
     @Autowired
     private RestTemplate restTemplate;
 
-    public void rm2() {
-        restTemplate.getForEntity("http://service2/rm", String.class).getBody();
+    public void rm2(Integer id) {
+        restTemplate.getForEntity("http://service2/rm?id="+id, String.class).getBody();
     }
 }

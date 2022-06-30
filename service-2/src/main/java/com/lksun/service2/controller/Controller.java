@@ -15,12 +15,12 @@ public class Controller {
 
     @GetMapping("/rm")
     @Transactional
-    public void rm() throws InterruptedException {
+    public void rm(Integer id) throws InterruptedException {
         Thread.sleep(5000);
         Orders order = new Orders();
         order.setId(1);
         order.setStatus(100);
-//        Integer i = 1/0;
+        Integer i = 1/id;
         ordersDao.updateByPrimaryKey(order);
     }
 }
