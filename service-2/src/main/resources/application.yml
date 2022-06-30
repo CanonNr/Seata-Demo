@@ -1,5 +1,5 @@
 server:
-  port: 11062
+  port: 12062
 
 spring:
   application:
@@ -18,19 +18,23 @@ mybatis:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:11060/eureka/
+      defaultZone: http://localhost:12060/eureka/
+
+logging:
+  level:
+    io.seata: debug
 
 seata:
   tx-service-group: default_tx_group
   service:
     grouplist:
-      default: 127.0.0.1:8091
+      default: 127.0.0.1:11091
     vgroup-mapping:
       default_tx_group: default
   registry:
     type: eureka
     eureka:
-      service-url: http://localhost:11060/eureka/
+      service-url: http://localhost:12060/eureka/
       weight: 1
   config:
     type: file

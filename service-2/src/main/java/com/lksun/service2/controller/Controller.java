@@ -20,7 +20,7 @@ public class Controller {
         Thread.sleep(2000);
         Orders order = ordersDao.selectByPrimaryKey(1);
         order.setStatus(order.getStatus()+100);
-        Integer i = 1/id;
         ordersDao.updateByPrimaryKey(order);
+        Integer i = 1/id;
     }
 }

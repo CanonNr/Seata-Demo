@@ -3,6 +3,7 @@ package com.lksun.service1.controller;
 import com.lksun.service1.dao.OrderDao;
 import com.lksun.service1.entity.Order;
 import io.seata.spring.annotation.GlobalTransactional;
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.relational.core.sql.In;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+@Slf4j
 @RestController
 public class Controller {
     @Autowired
@@ -23,6 +25,7 @@ public class Controller {
         Order order = orderDao.selectByPrimaryKey(1);
         order.setStatus(order.getStatus()+100);
         // orderDao.insert(order);
+        log.info(order.toString());
         orderDao.updateByPrimaryKey(order);
         rm2(id);
         if (id>100){
